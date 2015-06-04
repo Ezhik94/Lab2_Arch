@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+{% block body %}
+<script type="text/javascript">
+  $(function() {
+    $('a#send').bind('click', function() {
+      $.getJSON($SCRIPT_ROOT + '/custom_data', {
+        a: $('input[name="input_data"]').val(),
+          b: $('input[name="first_border"]').val(),
+          c: $('input[name="second_border"]').val(),
+          d: $('input[name="slice"]').val()
+      }, function(data) {
+          console.log(data);
+      });
+      return false;
+    });
+  });
+</script>
+<p><a href=# id=send>Send custom data to server</a></p>
+    <p>Input expression</p>
+<input type=text size=4 name=input_data>
+    <p>Input first border</p>
+<input type=text size=4 name=first_border>
+        <p>Input second border</p>
+<input type=text size=4 name=second_border>
+    <p>Input n</p>
+<input type=text size=4 name=slice>
+{% endblock %}

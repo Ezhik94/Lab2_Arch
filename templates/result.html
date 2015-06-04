@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+{% block body %}
+<script type="text/javascript">
+            $.ajax({
+                url: '/get_result',
+                success: function (response) {
+                    $('#res').text(response.result);
+                },
+                error: function (error) {
+                    console.log(error);
+                }
+            });
+</script>
+<p>Result: <output id="res"></output></p>
+{% endblock %}
